@@ -1,0 +1,8 @@
+cd .\backend\
+npx nodemon index.js
+
+
+
+
+cd .\frontend\
+npx ng serve

@@ -1,0 +1,119 @@
+<div class="main-wrapper">
+  <h1 class="main-title">🏆 RANKING DE MAYORES NIGGERS 🏆</h1>
+
+  <div class="cards-grid">
+    <div *ngIf="cargandoLista" class="loading">Sincronizando con Riot Games...</div>
+    <div *ngFor="let c of colegasStats; let i = index" class="mini-card" (click)="hacerScouting(c.nombre, c.tag)"
+      [style.border-left-color]="getTierColor(c.rango)">
+      
+      <!-- Puesto -->
+      <div class="rank-pos" [class.gold]="i === 0" [class.silver]="i === 1" [class.bronze]="i === 2">
+        {{ i + 1 }}º
+      </div>
+
+      <!-- Nombre -->
+      <div class="m-card-name-box">
+        <span class="p-name">{{ c.nombre }} <small>#{{ c.tag }}</small></span>
+      </div>
+
+      <!-- Icono + ELO (Apilado verticalmente) -->
+      <div class="m-card-elo">
+        <img [src]="getRankIcon(c.rango)" class="rank-emblem" 
+             [style.filter]="'drop-shadow(0 0 12px ' + getTierColor(c.rango) + '88)'"
+             (error)="$any($event.target).src='assets/items/item.png'">
+        <div class="elo-text-stack">
+          <span class="p-tier-name" [style.color]="getTierColor(c.rango)">{{ c.rango }} {{ c.division }}</span>
+          <div class="p-lp-row">
+            <span class="p-lp-val">{{ c.lp }} LP</span>
+            <span *ngIf="c.lp_diff !== 0" class="p-lp-diff" [class.gain]="c.lp_diff > 0" [class.loss]="c.lp_diff < 0">
+              {{ c.lp_diff > 0 ? '+' : '' }}{{ c.lp_diff }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-card-stats">
+        <div class="p-wl">
+          <span class="w">{{ c.wins }}W</span> / <span class="l">{{ c.losses }}L</span>
+        </div>
+        <div class="p-wr">{{ c.wr }}% WR</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="datosJugador" class="detail-card">
+    <div class="detail-header">
+      <h2 class="detail-name">{{ datosJugador.jugador }}</h2>
+      <span class="detail-wr">Winrate Global: <b>{{ datosJugador.winrate }}</b></span>
+    </div>
+
+    <div class="match-list">
+      <div *ngFor="let p of datosJugador.ultimas_partidas" class="match-row"
+        [ngClass]="{'win-row': p.resultado === 'Victoria', 'loss-row': p.resultado === 'Derrota'}">
+
+        <!-- Status -->
+        <div class="m-status">
+          <span class="m-time-ago">{{ p.tiempo_atras }}</span>
+          <span class="m-result" [ngClass]="p.resultado === 'Victoria' ? 'text-win' : 'text-loss'">
+            {{ p.resultado }}
+            <small *ngIf="p.lp_change !== null" class="m-lp-count">
+              ({{ p.lp_change > 0 ? '+' : '' }}{{ p.lp_change }} LP)
+            </small>
+          </span>
+          <span class="m-duration">{{ p.duracion }}</span>
+        </div>
+
+        <!-- Identity: Avatar & Box -->
+        <div class="m-identity">
+          <div class="champ-wrapper">
+            <img [src]="getChampIcon(p.campeon)" class="champ-thumb"
+              (error)="$any($event.target).src='assets/items/Fiddlesticks.png'">
+            <span class="champ-level">{{ p.nivel }}</span>
+          </div>
+
+          <div class="spells-box">
+            <img [src]="getSpellIcon(p.hechizos[0])" class="spell-img">
+            <img [src]="getSpellIcon(p.hechizos[1])" class="spell-img">
+          </div>
+        </div>
+
+        <!-- KDA & CS -->
+        <div class="m-kda-section">
+          <div class="kda-text">
+            <span>{{ p.kills }}</span> <span class="slash">/</span> <span class="d-red">{{ p.deaths }}</span> <span
+              class="slash">/</span> <span>{{ p.assists }}</span>
+          </div>
+          <div class="kda-subtext">
+            <span>{{ p.kda_ratio }} KDA</span>
+            <span class="dot">•</span>
+            <span>{{ p.cs }} CS</span>
+          </div>
+        </div>
+
+        <!-- Damage Bar -->
+        <div class="m-damage">
+          <span class="dmg-val">{{ p.dano | number }} DMG</span>
+          <span class="dmg-dpm">{{ p.dano_min }} DPM</span>
+          <div class="dmg-bar-bg">
+            <div class="dmg-bar-fill" [style.width.%]="p.dano_porcentaje"></div>
+          </div>
+        </div>
+
+        <!-- Items -->
+        <div class="m-items">
+          <!-- Main 6 Items -->
+          <div *ngFor="let item of [p.objetos[0], p.objetos[1], p.objetos[2], p.objetos[3], p.objetos[4], p.objetos[5]]"
+            class="item-slot">
+            <img *ngIf="item > 0" [src]="getItemIcon(item)" class="item-img"
+              (error)="$any($event.target).src='assets/items/' + item + '.png'">
+          </div>
+          <!-- Ward -->
+          <div class="item-slot ward-slot">
+            <img *ngIf="p.objetos[6] > 0" [src]="getItemIcon(p.objetos[6])" class="item-img ward-img"
+              (error)="$any($event.target).src='assets/items/' + p.objetos[6] + '.png'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
