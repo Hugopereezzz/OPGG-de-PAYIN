@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RiotService {
-  private apiUrl = '';
+  private apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
 
   constructor(private http: HttpClient) { }
 

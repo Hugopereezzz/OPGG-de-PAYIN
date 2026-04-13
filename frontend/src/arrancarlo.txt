@@ -5,4 +5,4 @@ npx nodemon index.js
 
 
 cd .\frontend\
-npx ng serve
+npm run build
