@@ -238,12 +238,18 @@ app.get('/scouting/:nombre/:tag', async (req, res) => {
 });
 
 // SERVIR FRONTEND
-app.use(express.static(path.join(__dirname, '../frontend/dist/frontend/browser')));
+const frontendPath = path.join(__dirname, '../frontend/dist/frontend/browser');
+console.log(`📂 Intentando servir frontend desde: ${frontendPath}`);
+app.use(express.static(frontendPath));
 
 // RUTA PARA ANGULAR (Cualquier ruta no API redirige a index.html)
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/frontend/browser/index.html'));
+app.get('*path', (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server en puerto ${PORT}`));
+console.log("🚀 Intentando arrancar servidor...");
+app.listen(PORT, () => {
+    console.log(`✅ Servidor escuchando en puerto ${PORT}`);
+    console.log(`🔗 API URL: http://localhost:${PORT}`);
+});
