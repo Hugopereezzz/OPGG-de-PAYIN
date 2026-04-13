@@ -18,5 +18,3 @@ services:
 databases:
   - name: lol_db
     plan: free
-    databaseName: lol_stats
-    user: postgres
