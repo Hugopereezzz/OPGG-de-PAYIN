@@ -2,6 +2,7 @@ const express = require('express');
 const { Pool } = require('pg');
 const axios = require('axios');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -236,4 +237,13 @@ app.get('/scouting/:nombre/:tag', async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("🚀 Server en puerto 3000"));
+// SERVIR FRONTEND
+app.use(express.static(path.join(__dirname, '../frontend/dist/frontend/browser')));
+
+// RUTA PARA ANGULAR (Cualquier ruta no API redirige a index.html)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/frontend/browser/index.html'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Server en puerto ${PORT}`));
