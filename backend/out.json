@@ -1,0 +1,158 @@
+{
+  "jugador": "Nosaka#PAYIN",
+  "rango": "PLATINUM IV",
+  "puntos": 9,
+  "winrate": "58.6%",
+  "ultimas_partidas": [
+    {
+      "campeon": "Viego",
+      "nivel": 16,
+      "kills": 6,
+      "deaths": 6,
+      "assists": 6,
+      "kda_ratio": "2.00",
+      "cs": 193,
+      "cs_min": "6.3",
+      "tiempo_atras": "Hace 10 d",
+      "hechizos": [
+        "SummonerFlash",
+        "SummonerSmite"
+      ],
+      "objetos": [
+        6676,
+        6672,
+        3047,
+        3033,
+        1018,
+        1038,
+        3364
+      ],
+      "dano": 16085,
+      "dano_porcentaje": 18,
+      "dano_min": "525.4",
+      "duracion": "30:37",
+      "lp_change": null,
+      "resultado": "Victoria"
+    },
+    {
+      "campeon": "Viego",
+      "nivel": 18,
+      "kills": 6,
+      "deaths": 6,
+      "assists": 7,
+      "kda_ratio": "2.17",
+      "cs": 312,
+      "cs_min": "7.7",
+      "tiempo_atras": "Hace 10 d",
+      "hechizos": [
+        "SummonerFlash",
+        "SummonerSmite"
+      ],
+      "objetos": [
+        3047,
+        6672,
+        6676,
+        3036,
+        3031,
+        1029,
+        3364
+      ],
+      "dano": 24784,
+      "dano_porcentaje": 42,
+      "dano_min": "613.0",
+      "duracion": "40:26",
+      "lp_change": null,
+      "resultado": "Victoria"
+    },
+    {
+      "campeon": "Viego",
+      "nivel": 16,
+      "kills": 8,
+      "deaths": 5,
+      "assists": 3,
+      "kda_ratio": "2.20",
+      "cs": 216,
+      "cs_min": "7.7",
+      "tiempo_atras": "Hace 10 d",
+      "hechizos": [
+        "SummonerFlash",
+        "SummonerSmite"
+      ],
+      "objetos": [
+        6676,
+        6672,
+        3111,
+        6673,
+        3033,
+        0,
+        3364
+      ],
+      "dano": 12623,
+      "dano_porcentaje": 37,
+      "dano_min": "451.6",
+      "duracion": "27:57",
+      "lp_change": null,
+      "resultado": "Derrota"
+    },
+    {
+      "campeon": "Viego",
+      "nivel": 17,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 8,
+      "kda_ratio": "4.00",
+      "cs": 222,
+      "cs_min": "7.2",
+      "tiempo_atras": "Hace 10 d",
+      "hechizos": [
+        "SummonerFlash",
+        "SummonerSmite"
+      ],
+      "objetos": [
+        3033,
+        3153,
+        3047,
+        3031,
+        6673,
+        0,
+        3364
+      ],
+      "dano": 21668,
+      "dano_porcentaje": 44,
+      "dano_min": "704.7",
+      "duracion": "30:45",
+      "lp_change": null,
+      "resultado": "Victoria"
+    },
+    {
+      "campeon": "DrMundo",
+      "nivel": 17,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 9,
+      "kda_ratio": "2.00",
+      "cs": 229,
+      "cs_min": "7.1",
+      "tiempo_atras": "Hace 11 d",
+      "hechizos": [
+        "SummonerFlash",
+        "SummonerSmite"
+      ],
+      "objetos": [
+        3065,
+        2021,
+        3009,
+        1011,
+        3742,
+        3084,
+        3364
+      ],
+      "dano": 18777,
+      "dano_porcentaje": 38,
+      "dano_min": "582.2",
+      "duracion": "32:15",
+      "lp_change": null,
+      "resultado": "Derrota"
+    }
+  ]
+}
