@@ -1,3 +1,4 @@
+console.log("🏁 Nodo arrancando proceso...");
 const express = require('express');
 const { Pool } = require('pg');
 const axios = require('axios');
