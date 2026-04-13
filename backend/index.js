@@ -241,7 +241,7 @@ app.get('/scouting/:nombre/:tag', async (req, res) => {
 app.use(express.static(path.join(__dirname, '../frontend/dist/frontend/browser')));
 
 // RUTA PARA ANGULAR (Cualquier ruta no API redirige a index.html)
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/dist/frontend/browser/index.html'));
 });
 
